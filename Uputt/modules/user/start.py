@@ -38,7 +38,7 @@ async def tod(_, message: Message):
 
 @Client.on_message(filters.command("Absen", [""]) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply("**Hadirr Uputt Sayanggg🥵**")
+    await message.reply("**Hadirr ALBY Sayanggg🥵**")
     
     
 @Client.on_message(filters.command("Sayang", [""]) & filters.user(DEVS) & ~filters.me)
@@ -48,7 +48,7 @@ async def sayang(_, message: Message):
 
 @Client.on_message(filters.command("aloo", [""]) & filters.user(DEVS) & ~filters.me)
 async def aloo(_, message: Message):
-    await message.reply("**Iyaa hlooo jugaa uputt gantengg 😍**")
+    await message.reply("**Iyaa hlooo jugaa ALBY gantengg 😍**")
 
 
 @Client.on_message(filters.command("tes", [""]) & filters.user(DEVS))
