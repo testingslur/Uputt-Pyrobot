@@ -12,7 +12,7 @@ from pyrogram.types import ChatPermissions, Message
 
 from config import CMD_HANDLER
 from Uputt import *
-from Uputt.helpers.adminHelpers import DEVS, WHITELIST
+from Uputt.helpers.adminHelpers import DEVS, VVIP
 from Uputt.helpers.basic import edit_or_reply
 from Uputt.helpers.PyroHelpers import get_ub_chats
 from Uputt.utils import extract_user, extract_user_and_reason
@@ -53,9 +53,9 @@ async def gban_user(client: Client, message: Message):
         return await Uputt.edit("**Ngapain NgeGban Diri Sendiri Pepek**")
     if user_id in DEVS:
         return await Uputt.edit("**Gak Bisa Di Gban Kontol karena dia Yang Buat Aku 🗿**")
-    if user_id in WHITELIST:
+    if user_id in VVIP:
         return await Uputt.edit(
-            "**Kau Gak Bisa Kontol Gban Dia Karena Dia Adalah admin @UputtSupport 😡**"
+            "**Anda Tidak Bisa Gban Dia Bodoh Karena Dia Adalah DEVS dan admin @ruangdiskusikami 😡**"
         )
     if user_id:
         try:
@@ -174,9 +174,9 @@ async def gmute_user(client: Client, message: Message):
         return await Uputt.edit("**Ngapain NgeGmute Diri Sendiri Pepek**")
     if user.id in DEVS:
         return await Uputt.edit("**Gak Bisa Di Gmute Kontol karena dia Yang Buat Aku 🗿**")
-    if user.id in WHITELIST:
+    if user.id in VVIP:
         return await Uputt.edit(
-            "**Mana Bisa Anjing Gmute Admin @UputtSupport 😡**"
+            "**Mana Bisa Anjing Gmute Devs dan Admin @ruangdiskusikami 😡**"
         )
     try:
         replied_user = reply.from_user
