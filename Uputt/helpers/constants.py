@@ -10,19 +10,19 @@
 class First:
     ALIVE = "`Still Working On Fire 🔥`"
     REPO = """
-**Hey**, __I am using__ ✨ **𝚄𝙿𝚄𝚃𝚃-𝙿𝚈𝚁𝙾𝙱𝙾𝚃** ✨
+**Hey**, __I am using__ ㊪ **ᴀʟʙʏ-ᴜsᴇʀʙᴏᴛ** ㊪
 
 ✣ **Userbot Version :** `{}`
-✣ **Group Support :** [UputtSupport](t.me/uputtsupport)
-✣ **Channel Uputt :** [Amneseey0u](t.me/amneseey0u)
-✣ **Owner Repo :** [Uputt](t.me/iamuput)
-✣ **Repo :** [Uputt-Pyrobot](https://github.com/iamuput/Uputt-Pyrobot)
+✣ **Group Support :** [Klik Disini](t.me/MT_Force)
+✣ **Channel Uputt :** [Klik Disini](t.me/kontenMT)
+✣ **Owner Repo :** [ALBY](t.me/Punya_Alby)
+✣ **Repo :** [ALBY-Pyrobot](https://github.com/PunyaAlby/ALBY-Pyrobot)
 
 
 Powered by [Uputt-Pyrobot](https://github.com/iamuput/Uputt-Pyrobot)"""
-    CREATOR = 'I was created by my master <a href="https://github.com/iamuput/Uputt-Pyrobot">Man</a> on a rainy day.'
+    CREATOR = 'I was created by my master <a href="https://github.com/PunyaAlby/ALBY-Pyrobot">Man</a> on a rainy day.'
     MSG_ON = """
-🐣 **Uputt-Pyrobot Berhasil Di Aktifkan** 🐣
+🔥 **ALBY-Pyrobot Berhasil Di Aktifkan** 🔥
 ━━
 ➠ **Userbot Version -** `{}`
 ➠ **Ketik** `{}alive` **untuk Mengecheck Bot**
