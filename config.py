@@ -18,13 +18,13 @@ load_dotenv("config.env")
 
 
 ALIVE_EMOJI = getenv("ALIVE_EMOJI", "🥵")
-ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph/file/b42b7a4a22ba89287cad4.jpg")
+ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph//file/5779af04a54f14357f5b4.jpg")
 ALIVE_TEKS_CUSTOM = getenv("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
-API_HASH = getenv("API_HASH", "34efb38c74d5e6b25d1bb6234396a8af")
-API_ID = getenv("API_ID", "23129036")
+API_HASH = getenv("API_HASH", "")
+API_ID = getenv("API_ID", "")
 BLACKLIST_CHAT = getenv("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001608701614, -1001675459127, -1001473548283, -1001608701614]
+    BLACKLIST_CHAT = [-1001608701614, -1001675459127, -1001473548283, -1001608701614, -1001854052937]
 BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BOT_VER = "1.1.5@main"
@@ -42,7 +42,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 PM_AUTO_BAN = strtobool(getenv("PM_AUTO_BAN", "True"))
-REPO_URL = getenv("REPO_URL", "https://github.com/iamuput/Uputt-Pyrobot")
+REPO_URL = getenv("REPO_URL", "https://github.com/daffin1/Uputt-Pyrobot")
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
 STRING_SESSION3 = getenv("STRING_SESSION3", "")
