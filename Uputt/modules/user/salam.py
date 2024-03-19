@@ -25,7 +25,7 @@ async def salamone(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "Assalamualaikum Anak Anjing",
+            "Assalamualaikum...",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -49,7 +49,7 @@ async def jwbsalam(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "Wa'alaikumsalam Kaum Dajjal",
+            "Wa'alaikumsalam...",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
