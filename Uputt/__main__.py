@@ -11,10 +11,10 @@ from Uputt.helpers.misc import create_botlog, heroku
 BOT_VER = "2.0.0"
 CMD_HANDLER = ["." "?" "!" "*"]
 MSG_ON = """
-〆 **Uputt-Pyrobot Di Aktifkan** 〆
+〆 **ALBY-Pyrobot Di Aktifkan** 〆
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
-㋱ **Userbot Version -** `{}`
-㋱ **Ketik** `{}alive` **untuk Mengecek Bot**
+㊪ **Userbot Version -** `{}`
+㊪ **Ketik** `{}alive` **untuk Mengecek Bot**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
@@ -45,7 +45,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("Uputt").info("Uputt-Pyrobot Telah Aktif Ya Kontol🐣")
+    LOGGER("Uputt").info("ALBY-Pyrobot Telah Aktif Ya PUKI")
     install()
     heroku()
     LOOP.run_until_complete(main())
