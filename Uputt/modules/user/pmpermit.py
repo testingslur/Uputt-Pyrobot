@@ -22,8 +22,16 @@ from Uputt.helpers.tools import get_arg
 from .help import *
 
 DEF_UNAPPROVED_MSG = (
-    "PMSecurity of ㅤ˹ 𝚄𝙿𝚄𝚃𝚃-𝙿𝚈𝚁𝙾𝙱𝙾𝚃 ˼ !\n"
-"•Please wait for me to respond or you will be blocked!!🚫\n"
+    "╔════════════════════╗\n"
+    "          ⛑ 𝗔𝗧𝗧𝗘𝗡𝗧𝗜𝗢𝗡 𝗣𝗟𝗘𝗔𝗦𝗘 ⛑\n"
+    "╚════════════════════╝\n"
+    "► Saya belum menyetujui anda untuk PM.\n"
+    "► Tunggu sampai saya menyetujui PM anda.\n"
+    "► Jangan Spam Chat atau anda akan otomatis diblokir.\n"
+    "╭╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╮\n"
+    "ㅤ     ㅤ〆 ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs 〆ㅤㅤ \n"
+    "           〆 ᴀʟʙʏ - ᴜꜱᴇʀʙᴏᴛ 〆    \n"
+    "╰╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╯
 )
 
 
@@ -98,7 +106,7 @@ async def auto_accept(client, message):
             approve(message.chat.id)
             await client.send_message(
                 message.chat.id,
-                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer Uputt-Pyrobot🥰</b>",
+                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer ALBY-Pyrobot</b>",
                 parse_mode=enums.ParseMode.HTML,
             )
         except IntegrityError:
