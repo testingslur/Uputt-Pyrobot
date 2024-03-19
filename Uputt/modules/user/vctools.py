@@ -20,7 +20,7 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import DEVS
+from Uputt.helpers.adminHelpers import VVIP
 from Uputt.helpers.basic import edit_or_reply
 from Uputt.helpers.tools import get_arg
 
@@ -45,7 +45,7 @@ async def get_group_call(
 
 
 @Client.on_message(
-    filters.command("Startvcs", [""]) & filters.user(DEVS) & ~filters.me
+    filters.command("startvcs", [""]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.command(["startvc"], cmd) & filters.me)
 async def opengc(client: Client, message: Message):
@@ -79,7 +79,7 @@ async def opengc(client: Client, message: Message):
         await Uputt.edit(f"**INFO:** `{e}`")
 
 
-@Client.on_message(filters.command("Stopvcs", [""]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("stopvcs", [""]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command(["stopvc"], cmd) & filters.me)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
@@ -95,7 +95,7 @@ async def end_vc_(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("naikos", [""]) & filters.user(DEVS) & ~filters.via_bot
+    filters.command("naik", [""]) & filters.user(VVIP) & ~filters.via_bot
 )
 @Client.on_message(filters.command("joinvc", cmd) & filters.me)
 async def joinvc(client: Client, message: Message):
@@ -116,7 +116,7 @@ async def joinvc(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("turunos", [""]) & filters.user(DEVS) & ~filters.via_bot
+    filters.command("turun", [""]) & filters.user(VVIP) & ~filters.via_bot
 )
 @Client.on_message(filters.command("leavevc", cmd) & filters.me)
 async def leavevc(client: Client, message: Message):
