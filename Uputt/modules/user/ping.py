@@ -22,7 +22,7 @@ from Uputt.helpers.basic import edit_or_reply
 from Uputt.helpers.constants import WWW
 from Uputt.helpers.PyroHelpers import SpeedConvert
 from Uputt.modules.bot.inline import get_readable_time
-from Uputt.helpers.adminHelpers import DEVS
+from Uputt.helpers.adminHelpers import VVIP
 
 from .help import *
 
@@ -69,7 +69,7 @@ async def nearest_dc(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("Cpink", [""]) & filters.user(DEVS) & ~filters.me
+    filters.command("Cpink", [""]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.command("ping", cmd) & filters.me)
 async def pingme(client: Client, message: Message):
@@ -84,7 +84,7 @@ async def pingme(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("Cping", [""]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("Cping", [""]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command("pink", cmd) & filters.me)
 async def pink(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
@@ -103,7 +103,7 @@ async def pink(client: Client, message: Message):
   
 
 @Client.on_message(
-    filters.command("Ceping", [""]) & filters.user(DEVS) & ~filters.me
+    filters.command("Ceping", [""]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.command("pong", cmd) & filters.me)
 async def uputt(client: Client, message: Message):
