@@ -20,11 +20,12 @@ from config import OWNER_ID as owner
 @app.on_callback_query()
 def pmowner(client, callback_query):
     user_id = owner
-    message = "Lu Siapa Anjeng!!!!"
+    message = "Anda Siapa Bajingan!!!! Bikin Bot sendiri aja"
     client.send_message(user_id, message)
     client.answer_callback_query(callback_query.id, text="Message sent")
 
 logoalby = [
+    "https://telegra.ph/file/3b4f8e18de24d10e5cce0.jpg",
     "https://graph.org/file/f832baf4ee57272d4dd3f.jpg",
     "https://telegra.ph//file/a96bdaccd5beb26d4cd51.jpg",
     "https://telegra.ph//file/5779af04a54f14357f5b4.jpg",
