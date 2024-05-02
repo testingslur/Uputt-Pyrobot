@@ -1,1 +1,1 @@
-worker: python3 -m Uputt
+worker: python3 -m PunyaAlby
