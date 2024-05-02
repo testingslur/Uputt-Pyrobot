@@ -70,7 +70,7 @@ async def alive_function(message: Message, answers):
         InlineQueryResultArticle(
             title="alipp",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph//file/a9881f192a63b23c3ed74.jpg",
+            thumb_url="https://telegra.ph/file/3b4f8e18de24d10e5cce0.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -106,7 +106,7 @@ async def peler_function(message: Message, answers):
         InlineQueryResultArticle(
             title="alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph//file/a9881f192a63b23c3ed74.jpg",
+            thumb_url="https://telegra.ph/file/3b4f8e18de24d10e5cce0.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -124,7 +124,7 @@ async def help_function(answers):
         InlineQueryResultArticle(
             title="Help Article!",
             description="Check Command List & Help",
-            thumb_url="https://telegra.ph//file/a9881f192a63b23c3ed74.jpg",
+            thumb_url="https://telegra.ph/file/3b4f8e18de24d10e5cce0.jpg",
             input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
             ),
