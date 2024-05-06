@@ -13,10 +13,10 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import BOTLOG_CHATID
-from Uputt.helpers.msg_types import Types, get_message_type
-from Uputt.helpers.parser import escape_markdown, mention_markdown
-from Uputt.helpers.SQL.afk_db import get_afk, set_afk
+from PunyaAlby import BOTLOG_CHATID
+from PunyaAlby.helpers.msg_types import Types, get_message_type
+from PunyaAlby.helpers.parser import escape_markdown, mention_markdown
+from PunyaAlby.helpers.SQL.afk_db import get_afk, set_afk
 from .help import *
 
 # Set priority to 11 and 12

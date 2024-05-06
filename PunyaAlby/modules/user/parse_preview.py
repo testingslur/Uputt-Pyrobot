@@ -13,8 +13,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.utils.sections import section
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.utils.sections import section
 
 from .help import *
 

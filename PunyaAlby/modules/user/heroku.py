@@ -5,12 +5,12 @@ import dotenv
 import heroku3
 import requests
 import urllib3
-from Uputt.utils.misc import *
+from PunyaAlby.utils.misc import *
 from pyrogram import Client, filters
 
 from config import HEROKU_API_KEY, HEROKU_APP_NAME
 from config import CMD_HNDLR as cmds
-from Uputt import SUDO_USER, Client
+from PunyaAlby import SUDO_USER, Client
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

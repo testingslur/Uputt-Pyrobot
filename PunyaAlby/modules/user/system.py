@@ -14,9 +14,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import BOTLOG_CHATID, LOGGER
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby import BOTLOG_CHATID, LOGGER
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import edit_or_reply
 
 from .help import *
 
@@ -36,7 +36,7 @@ async def restart_bot(_, message: Message):
     if HAPP is not None:
         HAPP.restart()
     else:
-        args = [sys.executable, "-m", "Uputt"]
+        args = [sys.executable, "-m", "PunyaAlby"]
         execle(sys.executable, *args, environ)
 
 
@@ -46,9 +46,9 @@ async def shutdown_bot(client: Client, message: Message):
         await client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**Uputt-Pyrobot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**ALBY-Pyrobot-Pyrobot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(message, "**Uputt-Pyrobot Berhasil di matikan!**")
+    await edit_or_reply(message, "**Alby-Pyrobot Berhasil di matikan!**")
     if HAPP is not None:
         HAPP.process_formation()["worker"].scale(0)
     else:
@@ -68,7 +68,7 @@ async def logs_ubot(client: Client, message: Message):
     await client.send_document(
         message.chat.id,
         "Logs-Heroku.txt",
-        thumb="Uputt/resources/logo.jpg",
+        thumb="PunyaAlby/resources/logo.jpg",
         caption="**Ini Logs Heroku anda**",
     )
     await Man.delete()

@@ -14,8 +14,8 @@ from pyrogram.enums import ChatType, UserStatus
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import BOTLOG_CHATID
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby import BOTLOG_CHATID
+from PunyaAlby.helpers.basic import edit_or_reply
 
 from .help import *
 
@@ -38,12 +38,12 @@ async def inviteee(client: Client, message: Message):
 
 @Client.on_message(filters.command(["inviteall"], cmd) & filters.me)
 async def inv(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     text = message.text.split(" ", 1)
     queryy = text[1]
     chat = await client.get_chat(queryy)
     tgchat = message.chat
-    await Uputt.edit_text(f"inviting users from {chat.username}")
+    await PunyaAlby.edit_text(f"inviting users from {chat.username}")
     async for member in client.get_chat_members(chat.id):
         user = member.user
         zxb = [
@@ -63,14 +63,14 @@ async def inv(client: Client, message: Message):
 
 @Client.on_message(filters.command("invitelink", cmd) & filters.me)
 async def invite_link(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
         message.chat.title
         try:
             link = await client.export_chat_invite_link(message.chat.id)
-            await Uputt.edit(f"**Link Invite:** {link}")
+            await PunyaAlby.edit(f"**Link Invite:** {link}")
         except Exception:
-            await Uputt.edit("Denied permission")
+            await PunyaAlby.edit("Denied permission")
 
 
 add_command_help(

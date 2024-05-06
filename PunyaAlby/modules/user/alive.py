@@ -21,13 +21,13 @@ from telegraph import exceptions, upload_file
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER
 from config import GROUP
-from Uputt import CMD_HELP, StartTime
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.helpers.SQL.globals import gvarstatus
-from Uputt.helpers.tools import convert_to_image
-from Uputt.utils import get_readable_time
-from Uputt.utils.misc import restart
+from PunyaAlby import CMD_HELP, StartTime
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.SQL.globals import gvarstatus
+from PunyaAlby.helpers.tools import convert_to_image
+from PunyaAlby.utils import get_readable_time
+from PunyaAlby.utils.misc import restart
 
 from .help import *
 
@@ -42,7 +42,7 @@ alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "l am alive✨"
 
 @Client.on_message(filters.command(["alip", "awake"], cmd) & filters.me)
 async def alip(client: Client, message: Message):
-    Uput = await edit_or_reply(message, "🥶")
+    alby = await edit_or_reply(message, "🥶")
     await asyncio.sleep(2)
     sad = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
@@ -65,19 +65,19 @@ async def alip(client: Client, message: Message):
                 caption=man,
                 reply_to_message_id=ReplyCheck(message),
             )
-      await Uput.delete()
+      await alby.delete()
     except:
-      await Uput.edit(man, disable_web_page_preview=True)
+      await alby.edit(man, disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("setalivelogo", cmd) & filters.me)
 async def setalivelogo(client: Client, message: Message):
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     link = (
         message.text.split(None, 1)[1]
         if len(
@@ -94,13 +94,13 @@ async def setalivelogo(client: Client, message: Message):
         try:
             media_url = upload_file(m_d)
         except exceptions.TelegraphException as exc:
-            await Uputt.edit(f"**ERROR:** `{exc}`")
+            await PunyaAlby.edit(f"**ERROR:** `{exc}`")
             os.remove(m_d)
             return
         link = f"https://telegra.ph/{media_url[0]}"
         os.remove(m_d)
     sql.addgvar("ALIVE_LOGO", link)
-    await Uputt.edit(
+    await PunyaAlby.edit(
         f"**Berhasil Mengcustom ALIVE LOGO Menjadi {link}**",
         disable_web_page_preview=True,
     )
@@ -110,7 +110,7 @@ async def setalivelogo(client: Client, message: Message):
 @Client.on_message(filters.command("setalivetext", cmd) & filters.me)
 async def setalivetext(client: Client, message: Message):
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
@@ -124,20 +124,20 @@ async def setalivetext(client: Client, message: Message):
     )
     if message.reply_to_message:
         text = message.reply_to_message.text or message.reply_to_message.caption
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     if not text:
         return await edit_or_reply(
             message, "**Berikan Sebuah Text atau Reply ke text**"
         )
     sql.addgvar("ALIVE_TEKS_CUSTOM", text)
-    await Uputt.edit(f"**Berhasil Mengcustom ALIVE TEXT Menjadi** `{text}`")
+    await PunyaAlby.edit(f"**Berhasil Mengcustom ALIVE TEXT Menjadi** `{text}`")
     restart()
 
 
 @Client.on_message(filters.command("setemoji", cmd) & filters.me)
 async def setemoji(client: Client, message: Message):
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
@@ -149,10 +149,10 @@ async def setemoji(client: Client, message: Message):
         != 1
         else None
     )
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     if not emoji:
         return await edit_or_reply(message, "**Berikan Sebuah Emoji**")
     sql.addgvar("ALIVE_EMOJI", emoji)
-    await Uputt.edit(f"**Berhasil Mengcustom EMOJI ALIVE Menjadi** {emoji}")
+    await PunyaAlby.edit(f"**Berhasil Mengcustom EMOJI ALIVE Menjadi** {emoji}")
     restart()
 

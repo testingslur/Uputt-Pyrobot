@@ -6,8 +6,8 @@ from pyrogram.types import *
 from pyrogram import filters
 from pyrogram.raw.functions.messages import DeleteHistory
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt import *
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby import *
 
 from .help import *
 

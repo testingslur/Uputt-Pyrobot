@@ -14,7 +14,7 @@ from pyrogram.raw import functions
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
 
 from .help import *
 

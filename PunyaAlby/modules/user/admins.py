@@ -14,10 +14,10 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import VVIP
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.adminHelpers import VVIP
+from PunyaAlby.helpers.basic import edit_or_reply
 from .help import *
-from Uputt.utils.misc import extract_user, extract_user_and_reason, list_admins
+from PunyaAlby.utils.misc import extract_user, extract_user_and_reason, list_admins
 
 unmute_permissions = ChatPermissions(
     can_send_messages=True,
@@ -33,8 +33,8 @@ unmute_permissions = ChatPermissions(
     filters.group & filters.command(["setchatphoto", "setgpic"], cmd) & filters.me
 )
 async def set_chat_photo(client: Client, message: Message):
-    putt = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
-    can_change_admin = putt.can_change_info
+    byy = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
+    can_change_admin = byy.can_change_info
     can_change_member = message.chat.permissions.can_change_info
     if not (can_change_admin or can_change_member):
         await message.edit_text("You don't have enough permission")
@@ -117,19 +117,19 @@ async def member_unban(client: Client, message: Message):
 async def pin_message(client: Client, message):
     if not message.reply_to_message:
         return await edit_or_reply(message, "Reply to a message to pin/unpin it.")
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_pin_messages:
-        return await Uputt.edit("I don't have enough permissions")
+        return await PunyaAlby.edit("I don't have enough permissions")
     r = message.reply_to_message
     if message.command[0][0] == "u":
         await r.unpin()
-        return await Uputt.edit(
+        return await PunyaAlby.edit(
             f"**Unpinned [this]({r.link}) message.**",
             disable_web_page_preview=True,
         )
     await r.pin(disable_notification=True)
-    await Uputt.edit(
+    await PunyaAlby.edit(
         f"**Pinned [this]({r.link}) message.**",
         disable_web_page_preview=True,
     )
@@ -180,18 +180,18 @@ async def unmute(client: Client, message: Message):
 @Client.on_message(filters.command(["kick", "dkick"], cmd) & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Uputt.edit("I don't have enough permissions")
+        return await PunyaAlby.edit("I don't have enough permissions")
     if not user_id:
-        return await Uputt.edit("I can't find that user.")
+        return await PunyaAlby.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Uputt.edit("I can't kick myself.")
+        return await PunyaAlby.edit("I can't kick myself.")
     if user_id == VVIP:
-        return await Uputt.edit("I can't kick my developer")
+        return await PunyaAlby.edit("I can't kick my developer")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await Uputt.edit("I can't kick an admin, You know the rules, so do i.")
+        return await PunyaAlby.edit("I can't kick an admin, You know the rules, so do i.")
     mention = (await client.get_users(user_id)).mention
     msg = f"""
 **Kicked User:** {mention}
@@ -202,11 +202,11 @@ async def kick_user(client: Client, message: Message):
         msg += f"\n**Reason:** `{reason}`"
     try:
         await message.chat.ban_member(user_id)
-        await Uputt.edit(msg)
+        await PunyaAlby.edit(msg)
         await asyncio.sleep(1)
         await message.chat.unban_member(user_id)
     except ChatAdminRequired:
-        return await Uputt.edit("**Maaf Anda Bukan admin**")
+        return await PunyaAlby.edit("**Maaf Anda Bukan admin**")
 
 
 @Client.on_message(
@@ -221,12 +221,12 @@ async def kick_user(client: Client, message: Message):
 async def promotte(client: Client, message: Message):
     user_id = await extract_user(message)
     umention = (await client.get_users(user_id)).mention
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     if not user_id:
-        return await Uputt.edit("I can't find that user.")
+        return await PunyaAlby.edit("I can't find that user.")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_promote_members:
-        return await Uputt.edit("I don't have enough permissions")
+        return await PunyaAlby.edit("I don't have enough permissions")
     if message.command[0][0] == "f":
         await message.chat.promote_member(
             user_id,
@@ -241,7 +241,7 @@ async def promotte(client: Client, message: Message):
                 can_promote_members=True,
             ),
         )
-        return await Uputt.edit(f"Fully Promoted! {umention}")
+        return await PunyaAlby.edit(f"Fully Promoted! {umention}")
 
     await message.chat.promote_member(
         user_id,
@@ -256,7 +256,7 @@ async def promotte(client: Client, message: Message):
             can_promote_members=False,
         ),
     )
-    await Uputt.edit(f"Promoted! {umention}")
+    await PunyaAlby.edit(f"Promoted! {umention}")
 
 
 @Client.on_message(
@@ -268,11 +268,11 @@ async def promotte(client: Client, message: Message):
 @Client.on_message(filters.group & filters.command("demote", cmd) & filters.me)
 async def demote(client: Client, message: Message):
     user_id = await extract_user(message)
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     if not user_id:
-        return await Uputt.edit("I can't find that user.")
+        return await PunyaAlby.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Uputt.edit("I can't demote myself.")
+        return await PunyaAlby.edit("I can't demote myself.")
     await message.chat.promote_member(
         user_id,
         privileges=ChatPrivileges(
@@ -287,7 +287,7 @@ async def demote(client: Client, message: Message):
         ),
     )
     umention = (await client.get_users(user_id)).mention
-    await Uputt.edit(f"Demoted! {umention}")
+    await PunyaAlby.edit(f"Demoted! {umention}")
 
 
 add_command_help(

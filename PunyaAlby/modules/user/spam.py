@@ -15,8 +15,8 @@ from pyrogram.types import Message
 
 from config import BLACKLIST_CHAT, BOTLOG_CHATID
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.utils.misc import extract_args
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.utils.misc import extract_args
 
 from .help import *
 

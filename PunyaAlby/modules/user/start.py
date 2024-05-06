@@ -14,10 +14,10 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER
 from config import *
-from Uputt import *
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.constants import First
+from PunyaAlby import *
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.constants import First
 
 from .help import *
 

@@ -4,9 +4,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.utils import extract_user
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.utils import extract_user
 
 from .help import *
 

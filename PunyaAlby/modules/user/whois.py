@@ -15,9 +15,9 @@ from pyrogram.enums import ChatType
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.utils import extract_user
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.utils import extract_user
 
 from .help import *
 
@@ -25,9 +25,9 @@ from .help import *
 @Client.on_message(filters.command(["whois", "info"], cmd) & filters.me)
 async def who_is(client: Client, message: Message):
     user_id = await extract_user(message)
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if not user_id:
-        return await Uputt.edit(
+        return await PunyaAlby.edit(
             "**Berikan userid/username/reply untuk mendapatkan info pengguna tersebut.**"
         )
     try:
@@ -70,7 +70,7 @@ async def who_is(client: Client, message: Message):
         if photo_id:
             photo = await client.download_media(photo_id)
             await gather(
-                Uputt.delete(),
+                PunyaAlby.delete(),
                 client.send_photo(
                     message.chat.id,
                     photo,
@@ -80,14 +80,14 @@ async def who_is(client: Client, message: Message):
             )
             remove(photo)
         else:
-            await Uputt.edit(out_str, disable_web_page_preview=True)
+            await PunyaAlby.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Uputt.edit(f"**INFO:** `{e}`")
+        return await PunyaAlby.edit(f"**INFO:** `{e}`")
 
 
 @Client.on_message(filters.command(["chatinfo", "cinfo", "ginfo"], cmd) & filters.me)
 async def chatinfo_handler(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing...`")
+    PunyaAlby = await edit_or_reply(message, "`Processing...`")
     try:
         if len(message.command) > 1:
             chat_u = message.command[1]
@@ -130,7 +130,7 @@ async def chatinfo_handler(client: Client, message: Message):
         if photo_id:
             photo = await client.download_media(photo_id)
             await gather(
-                Uputt.delete(),
+                PunyaAlby.delete(),
                 client.send_photo(
                     message.chat.id,
                     photo,
@@ -140,9 +140,9 @@ async def chatinfo_handler(client: Client, message: Message):
             )
             remove(photo)
         else:
-            await Uputt.edit(out_str, disable_web_page_preview=True)
+            await PunyaAlby.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Uputt.edit(f"**INFO:** `{e}`")
+        return await PunyaAlby.edit(f"**INFO:** `{e}`")
 
 
 add_command_help(

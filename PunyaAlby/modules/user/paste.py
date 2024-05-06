@@ -15,8 +15,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.utils.pastebin import paste
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.utils.pastebin import paste
 
 from .help import *
 

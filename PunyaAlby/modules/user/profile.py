@@ -14,26 +14,26 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.utils.misc import extract_user
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.utils.misc import extract_user
 
 from .help import *
 
 flood = {}
-profile_photo = "Uputt/modules/cache/pfp.jpg"
+profile_photo = "PunyaAlby/modules/cache/pfp.jpg"
 
 
 @Client.on_message(filters.command(["block"], cmd) & filters.me)
 async def block_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if not user_id:
         return await message.edit(
             "Berikan User ID/Username atau reply pesan pengguna untuk membuka blokir."
         )
     if user_id == client.me.id:
-        return await Uputt.edit("anda stress harap segera minum obat.")
+        return await PunyaAlby.edit("anda stress harap segera minum obat.")
     await client.block_user(user_id)
     umention = (await client.get_users(user_id)).mention
     await message.edit(f"**Berhasil Memblokir Jamet Ini** {umention}")
@@ -42,13 +42,13 @@ async def block_user_func(client: Client, message: Message):
 @Client.on_message(filters.command(["unblock"], cmd) & filters.me)
 async def unblock_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if not user_id:
         return await message.edit(
             "Berikan User ID/Username atau reply pesan pengguna untuk membuka blokir."
         )
     if user_id == client.me.id:
-        return await Uputt.edit("anda stress harap segera minum obat.")
+        return await PunyaAlby.edit("anda stress harap segera minum obat.")
     await client.unblock_user(user_id)
     umention = (await client.get_users(user_id)).mention
     await message.edit(f"**Berhasil Membuka Blokir Jamet ini ✌** {umention}")
@@ -56,38 +56,38 @@ async def unblock_user_func(client: Client, message: Message):
 
 @Client.on_message(filters.command(["setname"], cmd) & filters.me)
 async def setname(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if len(message.command) == 1:
-        return await Uputt.edit(
+        return await PunyaAlby.edit(
             "Berikan teks untuk ditetapkan sebagai nama telegram anda."
         )
     elif len(message.command) > 1:
         name = message.text.split(None, 1)[1]
         try:
             await client.update_profile(first_name=name)
-            await Uputt.edit(f"**Berhasil Mengubah Nama Telegram anda Menjadi** `{name}`")
+            await PunyaAlby.edit(f"**Berhasil Mengubah Nama Telegram anda Menjadi** `{name}`")
         except Exception as e:
-            await Uputt.edit(f"**ERROR:** `{e}`")
+            await PunyaAlby.edit(f"**ERROR:** `{e}`")
     else:
-        return await Uputt.edit(
+        return await PunyaAlby.edit(
             "Berikan teks untuk ditetapkan sebagai nama telegram anda."
         )
 
 
 @Client.on_message(filters.command(["setbio"], cmd) & filters.me)
 async def set_bio(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if len(message.command) == 1:
-        return await Uputt.edit("Berikan teks untuk ditetapkan sebagai bio.")
+        return await PunyaAlby.edit("Berikan teks untuk ditetapkan sebagai bio.")
     elif len(message.command) > 1:
         bio = message.text.split(None, 1)[1]
         try:
             await client.update_profile(bio=bio)
-            await Uputt.edit(f"**Berhasil Mengubah BIO anda menjadi** `{bio}`")
+            await PunyaAlby.edit(f"**Berhasil Mengubah BIO anda menjadi** `{bio}`")
         except Exception as e:
-            await Uputt.edit(f"**ERROR:** `{e}`")
+            await PunyaAlby.edit(f"**ERROR:** `{e}`")
     else:
-        return await Uputt.edit("Berikan teks untuk ditetapkan sebagai bio.")
+        return await PunyaAlby.edit("Berikan teks untuk ditetapkan sebagai bio.")
 
 
 @Client.on_message(filters.me & filters.command(["setpfp"], cmd))

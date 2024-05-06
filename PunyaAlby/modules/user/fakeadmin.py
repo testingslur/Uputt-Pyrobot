@@ -10,10 +10,10 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import CMD_HANDLER
-from Uputt import *
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.utils.misc import extract_user_and_reason
-from Uputt.helpers.tools import get_arg
+from PunyaAlby import *
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.utils.misc import extract_user_and_reason
+from PunyaAlby.helpers.tools import get_arg
 
 from .help import *
 

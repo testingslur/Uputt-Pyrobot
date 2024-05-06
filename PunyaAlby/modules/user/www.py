@@ -24,14 +24,14 @@ from pyrogram.raw import functions
 
 from config import CMD_HANDLER
 from config import BOT_VER, BRANCH as brch
-from Uputt import CMD_HELP, StartTime
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.constants import WWW
-from Uputt import app 
-from Uputt.helpers.PyroHelpers import SpeedConvert
-from Uputt.utils.tools import get_readable_time
-from Uputt.modules.bot.inline import get_readable_time
-from Uputt.helpers.adminHelpers import DEVS
+from PunyaAlby import CMD_HELP, StartTime
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.constants import WWW
+from PunyaAlby import app 
+from PunyaAlby.helpers.PyroHelpers import SpeedConvert
+from PunyaAlby.utils.tools import get_readable_time
+from PunyaAlby.modules.bot.inline import get_readable_time
+from PunyaAlby.helpers.adminHelpers import DEVS
 
 from .help import *
 

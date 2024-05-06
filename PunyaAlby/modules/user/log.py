@@ -13,11 +13,11 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import BOTLOG_CHATID
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.SQL import no_log_pms_sql
-from Uputt.helpers.SQL.globals import addgvar, gvarstatus
-from Uputt.helpers.tools import get_arg
+from PunyaAlby import BOTLOG_CHATID
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.SQL import no_log_pms_sql
+from PunyaAlby.helpers.SQL.globals import addgvar, gvarstatus
+from PunyaAlby.helpers.tools import get_arg
 
 from .help import *
 

@@ -5,8 +5,8 @@ from time import time
 from config import CMD_HANDLER as cmd
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Uputt.helpers.adminHelpers import VVIP
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.adminHelpers import VVIP
+from PunyaAlby.helpers.basic import edit_or_reply
 
 
 async def aexec(code, client: Client, message: Message):

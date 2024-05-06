@@ -13,8 +13,8 @@ from pyrogram.types import Message
 from telegraph import Telegraph, exceptions, upload_file
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply, get_text
-from Uputt.helpers.tools import *
+from PunyaAlby.helpers.basic import edit_or_reply, get_text
+from PunyaAlby.helpers.tools import *
 
 from .help import *
 
@@ -25,9 +25,9 @@ auth_url = r["auth_url"]
 
 @Client.on_message(filters.command(["tg", "telegraph"], cmd) & filters.me)
 async def uptotelegraph(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     if not message.reply_to_message:
-        await Uputt.edit(
+        await PunyaAlby.edit(
             "**Mohon Balas Ke Pesan, Untuk Mendapatkan Link dari Telegraph.**"
         )
         return
@@ -39,13 +39,13 @@ async def uptotelegraph(client: Client, message: Message):
         try:
             media_url = upload_file(m_d)
         except exceptions.TelegraphException as exc:
-            await Uputt.edit(f"**ERROR:** `{exc}`")
+            await PunyaAlby.edit(f"**ERROR:** `{exc}`")
             os.remove(m_d)
             return
         U_done = (
             f"**Berhasil diupload ke** [Telegraph](https://telegra.ph/{media_url[0]})"
         )
-        await Uputt.edit(U_done)
+        await PunyaAlby.edit(U_done)
         os.remove(m_d)
     elif message.reply_to_message.text:
         page_title = get_text(message) if get_text(message) else client.me.first_name
@@ -54,10 +54,10 @@ async def uptotelegraph(client: Client, message: Message):
         try:
             response = telegraph.create_page(page_title, html_content=page_text)
         except exceptions.TelegraphException as exc:
-            await Uputt.edit(f"**ERROR:** `{exc}`")
+            await PunyaAlby.edit(f"**ERROR:** `{exc}`")
             return
         wow_graph = f"**Berhasil diupload ke** [Telegraph](https://telegra.ph/{response['path']})"
-        await Uputt.edit(wow_graph)
+        await PunyaAlby.edit(wow_graph)
 
 
 add_command_help(
