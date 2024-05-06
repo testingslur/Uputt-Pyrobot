@@ -23,10 +23,10 @@ from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.helpers.tools import get_arg, get_text, resize_media
-from Uputt.utils.tools import add_text_img, bash
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.tools import get_arg, get_text, resize_media
+from PunyaAlby.utils.tools import add_text_img, bash
 
 from .help import *
 
@@ -35,7 +35,7 @@ from .help import *
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
-    Uputt = await edit_or_reply(message, "`Boleh juga ni stickernya malingg ahh🤪...`")
+    PunyaAlby = await edit_or_reply(message, "`Boleh juga ni stickernya malingg ahh🤪...`")
     media_ = None
     emoji_ = None
     is_anim = False
@@ -65,7 +65,7 @@ async def kang(client: Client, message: Message):
             ff_vid = True
         elif replied.sticker:
             if not replied.sticker.file_name:
-                await Uputt.edit("**Stiker tidak memiliki Nama!**")
+                await PunyaAlby.edit("**Stiker tidak memiliki Nama!**")
                 return
             emoji_ = replied.sticker.emoji
             is_anim = replied.sticker.is_animated
@@ -77,11 +77,11 @@ async def kang(client: Client, message: Message):
                 resize = True
                 ff_vid = True
         else:
-            await Uputt.edit("**File Tidak Didukung**")
+            await PunyaAlby.edit("**File Tidak Didukung**")
             return
-        media_ = await client.download_media(replied, file_name="Uputt/resources/")
+        media_ = await client.download_media(replied, file_name="PunyaAlby/resources/")
     else:
-        await Uputt.edit("**Silahkan Reply ke Media Foto/GIF/Sticker!**")
+        await PunyaAlby.edit("**Silahkan Reply ke Media Foto/GIF/Sticker!**")
         return
     if media_:
         args = get_arg(message)
@@ -139,7 +139,7 @@ async def kang(client: Client, message: Message):
                 if is_video:
                     packname += f"_video{pack}"
                     packnick += f" (Video){pack}"
-                await Uputt.edit(
+                await PunyaAlby.edit(
                     f"`Membuat Sticker Pack Baru {pack} Karena Sticker Pack Sudah Penuh`"
                 )
                 continue
@@ -151,7 +151,7 @@ async def kang(client: Client, message: Message):
                 await client.unblock_user("stickers")
                 await client.send_message("stickers", "/addsticker")
             except Exception as e:
-                return await Uputt.edit(f"**ERROR:** `{e}`")
+                return await PunyaAlby.edit(f"**ERROR:** `{e}`")
             await asyncio.sleep(2)
             await client.send_message("stickers", packname)
             await asyncio.sleep(2)
@@ -166,7 +166,7 @@ async def kang(client: Client, message: Message):
                 if is_video:
                     packname += "_video"
                     packnick += " (Video)"
-                await Uputt.edit(
+                await PunyaAlby.edit(
                     "`Membuat Sticker Pack Baru "
                     + str(pack)
                     + " Karena Sticker Pack Sudah Penuh`"
@@ -193,7 +193,7 @@ async def kang(client: Client, message: Message):
                     await asyncio.sleep(2)
                     await client.send_message("Stickers", packname)
                     await asyncio.sleep(2)
-                    await Uputt.edit(
+                    await PunyaAlby.edit(
                         f"**Sticker Berhasil Ditambahkan!**\n         🔥 **[AMBIL DISINI NJENG](https://t.me/addstickers/{packname})** 🔥\n**Untuk Menggunakan Stickers**"
                     )
                     return
@@ -203,7 +203,7 @@ async def kang(client: Client, message: Message):
                 await get_response(message, client)
                 == "Sorry, the file type is invalid."
             ):
-                await Uputt.edit(
+                await PunyaAlby.edit(
                     "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
                 )
                 return
@@ -211,7 +211,7 @@ async def kang(client: Client, message: Message):
             await asyncio.sleep(2)
             await client.send_message("Stickers", "/done")
         else:
-            await Uputt.edit("`Membuat Sticker Pack Baru`")
+            await PunyaAlby.edit("`Membuat Sticker Pack Baru`")
             try:
                 await client.send_message("Stickers", cmd)
             except YouBlockedUser:
@@ -226,7 +226,7 @@ async def kang(client: Client, message: Message):
                 await get_response(message, client)
                 == "Sorry, the file type is invalid."
             ):
-                await Uputt.edit(
+                await PunyaAlby.edit(
                     "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
                 )
                 return
@@ -241,7 +241,7 @@ async def kang(client: Client, message: Message):
             await asyncio.sleep(2)
             await client.send_message("Stickers", packname)
             await asyncio.sleep(2)
-        await Uputt.edit(
+        await PunyaAlby.edit(
             f"**Sticker Berhasil Ditambahkan!**\n         🔥 **[AMBIL DISINI NJENG](https://t.me/addstickers/{packname})** 🔥\n**Untuk Menggunakan Stickers**"
         )
         if os.path.exists(str(media_)):
@@ -313,18 +313,18 @@ async def tinying(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and (reply.media)):
         return await edit_or_reply(message, "**Silahkan Balas Ke Pesan Sticker!**")
-    Uputt = await edit_or_reply(message, "`Processing . . .`")
+    PunyaAlby = await edit_or_reply(message, "`Processing . . .`")
     ik = await client.download_media(reply)
-    im1 = Image.open("Uputt/resources/blank.png")
+    im1 = Image.open("PunyaAlby/resources/blank.png")
     if ik.endswith(".tgs"):
-        await client.download_media(reply, "uputt.tgs")
-        await bash("lottie_convert.py uputt.tgs json.json")
+        await client.download_media(reply, "PunyaAlby.tgs")
+        await bash("lottie_convert.py PunyaAlby.tgs json.json")
         json = open("json.json", "r")
         jsn = json.read()
         jsn = jsn.replace("512", "2000")
         ("json.json", "w").write(jsn)
-        await bash("lottie_convert.py json.json uputt.tgs")
-        file = "uputt.tgs"
+        await bash("lottie_convert.py json.json PunyaAlby.tgs")
+        file = "PunyaAlby.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".mp4")):
         iik = cv2.VideoCapture(ik)
@@ -374,7 +374,7 @@ async def tinying(client: Client, message: Message):
         file = "o.webp"
         os.remove("k.png")
     await asyncio.gather(
-        Uputt.delete(),
+        PunyaAlby.delete(),
         client.send_sticker(
             message.chat.id,
             sticker=file,

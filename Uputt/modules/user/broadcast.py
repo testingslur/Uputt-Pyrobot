@@ -16,11 +16,11 @@ from requests import get
 
 from config import BLACKLIST_GCAST
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import VVIP
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.misc import HAPP, in_heroku
-from Uputt.helpers.tools import get_arg
-from Uputt.utils.misc import restart
+from PunyaAlby.helpers.adminHelpers import VVIP
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.misc import HAPP, in_heroku
+from PunyaAlby.helpers.tools import get_arg
+from PunyaAlby.utils.misc import restart
 
 from .help import *
 

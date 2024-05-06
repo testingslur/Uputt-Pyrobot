@@ -7,9 +7,9 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Uputt import *
+from PunyaAlby import *
 from config import CMD_HANDLER
-from Uputt.helpers.tools import get_arg
+from PunyaAlby.helpers.tools import get_arg
 
 from .help import *
 

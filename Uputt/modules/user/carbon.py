@@ -14,9 +14,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import aiosession
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby import aiosession
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
 
 from .help import *
 

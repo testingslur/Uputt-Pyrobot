@@ -2,11 +2,11 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as kaz
 from pyrogram.errors import MessageNotModified
-from Uputt.helpers.basic import *
-from Uputt.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import *
+from PunyaAlby.helpers.adminHelpers import DEVS
 from config import *
 from config import CMD_HANDLER
-from Uputt.utils import *
+from PunyaAlby.utils import *
 
 import requests
 import os

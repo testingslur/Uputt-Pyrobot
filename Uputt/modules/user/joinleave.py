@@ -10,10 +10,10 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
-from Uputt.helpers.adminHelpers import VVIP
+from PunyaAlby.helpers.adminHelpers import VVIP
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.basic import edit_or_reply
 
 from .help import *
 
@@ -21,31 +21,31 @@ from .help import *
 @Client.on_message(filters.command("sinimasuk", ["."]) & filters.user(VVIP) & ~filters.me)
 @Client.on_message(filters.command("join", cmd) & filters.me)
 async def join(client: Client, message: Message):
-    Uputt = message.command[1] if len(message.command) > 1 else message.chat.id
+    PunyaAlby = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Processing...`")
     try:
-        await xxnx.edit(f"**Berhasil Bergabung ke Chat ID** `{Uputt}`")
-        await client.join_chat(Uputt)
+        await xxnx.edit(f"**Berhasil Bergabung ke Chat ID** `{PunyaAlby}`")
+        await client.join_chat(PunyaAlby)
     except Exception as ex:
         await xxnx.edit(f"**ERROR:** \n\n{str(ex)}")
 
 
 @Client.on_message(filters.command(["leave", "kickme"], cmd) & filters.me)
 async def leave(client: Client, message: Message):
-    Uputt = message.command[1] if len(message.command) > 1 else message.chat.id
+    PunyaAlby = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Processing...`")
     if message.chat.id in BLACKLIST_CHAT:
         return await xxnx.edit("**Perintah ini Dilarang digunakan di Group ini**")
     try:
         await xxnx.edit_text(f"{client.me.first_name} has left this group, bye!!")
-        await client.leave_chat(Uputt)
+        await client.leave_chat(PunyaAlby)
     except Exception as ex:
         await xxnx.edit_text(f"**ERROR:** \n\n{str(ex)}")
 
 
 @Client.on_message(filters.command(["leaveallgc"], cmd) & filters.me)
 async def kickmeall(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Global Leave from group chats...`")
+    PunyaAlby = await edit_or_reply(message, "`Global Leave from group chats...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -56,14 +56,14 @@ async def kickmeall(client: Client, message: Message):
                 await client.leave_chat(chat)
             except BaseException:
                 er += 1
-    await Uputt.edit(
+    await PunyaAlby.edit(
         f"**Berhasil Keluar dari {done} Group, Gagal Keluar dari {er} Group**"
     )
 
 
 @Client.on_message(filters.command(["leaveallch"], cmd) & filters.me)
 async def kickmeallch(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Global Leave from group chats...`")
+    PunyaAlby = await edit_or_reply(message, "`Global Leave from group chats...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -74,7 +74,7 @@ async def kickmeallch(client: Client, message: Message):
                 await client.leave_chat(chat)
             except BaseException:
                 er += 1
-    await Uputt.edit(
+    await PunyaAlby.edit(
         f"**Berhasil Keluar dari {done} Channel, Gagal Keluar dari {er} Channel**"
     )
 

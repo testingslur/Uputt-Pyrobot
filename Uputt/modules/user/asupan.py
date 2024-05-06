@@ -5,17 +5,17 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
 
 from .help import *
 
 
 @Client.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
 async def asupan_cmd(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    PunyaAlby = await edit_or_reply(message, "`Tunggu Sebentar...`")
     await gather(
-        Uputt.delete(),
+        PunyaAlby.delete(),
         client.send_video(
             message.chat.id,
             choice(
@@ -32,16 +32,16 @@ async def asupan_cmd(client: Client, message: Message):
 
 @Client.on_message(filters.command(["bkp"], cmd) & filters.me)
 async def bkp_cmd(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    PunyaAlby = await edit_or_reply(message, "`Tunggu Sebentar...`")
     await gather(
-        Uputt.delete(),
+        PunyaAlby.delete(),
         client.send_video(
             message.chat.id,
             choice(
                 [
                     bkp.video.file_id
                     async for bkp in client.search_messages(
-                        "bokepuputt", filter=enums.MessagesFilter.VIDEO
+                        "bokepPunyaAlby", filter=enums.MessagesFilter.VIDEO
                     )
                 ]
             ),

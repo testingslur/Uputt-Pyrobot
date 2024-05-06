@@ -10,8 +10,8 @@ from asyncio import sleep
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Uputt.helpers.tools import get_arg
-from Uputt import *
+from PunyaAlby.helpers.tools import get_arg
+from PunyaAlby import *
 from config import CMD_HANDLER
 
 from .help import *

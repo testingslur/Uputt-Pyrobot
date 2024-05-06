@@ -2,10 +2,10 @@ from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from Uputt.helpers import *
-from Uputt.helpers.SQL.notes_sql import *
-from Uputt.utils import *
-from Uputt import *
+from PunyaAlby.helpers import *
+from PunyaAlby.helpers.SQL.notes_sql import *
+from PunyaAlby.utils import *
+from PunyaAlby import *
 
 from .help import *
 

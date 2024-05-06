@@ -20,7 +20,7 @@ from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.basic import edit_or_reply
 
 from .help import *
 

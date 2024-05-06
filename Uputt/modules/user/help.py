@@ -4,10 +4,10 @@ from prettytable import PrettyTable
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
-from Uputt import app, CMD_HELP
-from Uputt.helpers.cmd import *
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.helpers.utility import split_list
+from PunyaAlby import app, CMD_HELP
+from PunyaAlby.helpers.cmd import *
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.utility import split_list
 
 
 async def edit_or_reply(message: Message, *args, **kwargs) -> Message:

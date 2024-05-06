@@ -12,7 +12,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.tools import get_arg
+from PunyaAlby.helpers.tools import get_arg
 
 from .help import *
 

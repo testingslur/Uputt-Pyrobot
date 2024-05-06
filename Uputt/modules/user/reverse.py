@@ -21,11 +21,11 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
 
 from .help import *
 
-screen_shot = "Uputt/modules/cache/"
+screen_shot = "PunyaAlby/modules/cache/"
 
 
 async def run_cmd(cmd: str) -> Tuple[str, str, int, int]:

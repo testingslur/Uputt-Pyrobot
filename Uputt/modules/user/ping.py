@@ -17,12 +17,12 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER
 from config import BOT_VER, BRANCH as brch
-from Uputt import CMD_HELP, StartTime
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.constants import WWW
-from Uputt.helpers.PyroHelpers import SpeedConvert
-from Uputt.modules.bot.inline import get_readable_time
-from Uputt.helpers.adminHelpers import VVIP
+from PunyaAlby import CMD_HELP, StartTime
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.constants import WWW
+from PunyaAlby.helpers.PyroHelpers import SpeedConvert
+from PunyaAlby.modules.bot.inline import get_readable_time
+from PunyaAlby.helpers.adminHelpers import VVIP
 
 from .help import *
 
@@ -89,11 +89,11 @@ async def pingme(client: Client, message: Message):
 async def pink(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    Uputt = await message.reply("**Sabarr Anjing Ngelagg...**")
+    PunyaAlby = await message.reply("**Sabarr Anjing Ngelagg...**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await Uputt.edit(
-        f"**❏Uputt-Pyrobot**\n"
+    await PunyaAlby.edit(
+        f"**❏PunyaAlby-Pyrobot**\n"
         f"**├• PING   :** "
         f"`%sms` \n"
         f"**├•  Uptime  :** "
@@ -106,7 +106,7 @@ async def pink(client: Client, message: Message):
     filters.command("Ceping", [""]) & filters.user(VVIP) & ~filters.me
 )
 @Client.on_message(filters.command("pong", cmd) & filters.me)
-async def uputt(client: Client, message: Message):
+async def PunyaAlby(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     xx = await edit_or_reply(message, "KOCOKINNNN SAYANGG")

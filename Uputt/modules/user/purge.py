@@ -13,8 +13,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import edit_or_reply
 
 from .help import *
 
@@ -41,12 +41,12 @@ async def del_msg(client: Client, message: Message):
 )
 @Client.on_message(filters.command("purge", cmd) & filters.me)
 async def purge(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "`Starting To Purge Messages!`")
+    PunyaAlby = await edit_or_reply(message, "`Starting To Purge Messages!`")
     msg = message.reply_to_message
     if msg:
         itermsg = list(range(msg.id, message.id))
     else:
-        await Uputt.edit("`Reply To Message To Purge!`")
+        await PunyaAlby.edit("`Reply To Message To Purge!`")
         return
     count = 0
 
@@ -59,10 +59,10 @@ async def purge(client: Client, message: Message):
         except FloodWait as e:
             await asyncio.sleep(e.x)
         except Exception as e:
-            await Uputt.edit(f"**ERROR:** `{e}`")
+            await PunyaAlby.edit(f"**ERROR:** `{e}`")
             return
 
-    done = await Uputt.edit(
+    done = await PunyaAlby.edit(
         f"**Fast Purge Completed!**\n**Berhasil Menghapus** `{str(count)}` **Pesan.**"
     )
     await asyncio.sleep(2)

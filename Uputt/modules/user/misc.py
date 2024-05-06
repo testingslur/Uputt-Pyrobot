@@ -14,11 +14,11 @@ from pyrogram import Client, enums, filters, raw
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt import *
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.PyroHelpers import ReplyCheck
-from Uputt.helpers.tools import get_arg
-from Uputt.utils import s_paste
+from PunyaAlby import *
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.PyroHelpers import ReplyCheck
+from PunyaAlby.helpers.tools import get_arg
+from PunyaAlby.utils import s_paste
 
 from .help import *
 
@@ -86,7 +86,7 @@ async def types(client: Client, message: Message):
 
 @Client.on_message(filters.command(["directmessage", "dm"], cmd) & filters.me)
 async def dm(client: Client, message: Message):
-    Uputt = await edit_or_reply(message, "` Proccessing.....`")
+    PunyaAlby = await edit_or_reply(message, "` Proccessing.....`")
     quantity = 1
     inp = message.text.split(None, 2)[1]
     user = await client.get_chat(inp)
@@ -96,7 +96,7 @@ async def dm(client: Client, message: Message):
     if message.reply_to_message:
         reply_to_id = message.reply_to_message.message_id
         for _ in range(quantity):
-            await Uputt.edit("Message Sended Successfully !")
+            await PunyaAlby.edit("Message Sended Successfully !")
             await client.send_message(user.id, spam_text,
                                       reply_to_messsge_id=reply_to_id)
             await asyncio.sleep(0.15)
@@ -104,7 +104,7 @@ async def dm(client: Client, message: Message):
 
     for _ in range(quantity):
         await client.send_message(user.id, spam_text)
-        await Uputt.edit("Message Sended Successfully !")
+        await PunyaAlby.edit("Message Sended Successfully !")
         await asyncio.sleep(0.15)
 
 @Client.on_message(filters.command("duck", cmd) & filters.me)

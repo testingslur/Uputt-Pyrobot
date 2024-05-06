@@ -18,8 +18,8 @@ from pyrogram.types import *
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply, get_text
-from Uputt.helpers.constants import MEMES
+from PunyaAlby.helpers.basic import edit_or_reply, get_text
+from PunyaAlby.helpers.constants import MEMES
 
 from .help import *
 

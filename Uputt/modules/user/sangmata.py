@@ -16,8 +16,8 @@ from pyrogram.raw.functions.messages import DeleteHistory
 from pyrogram.types import *
 
 from config import CMD_HANDLER
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.utils import extract_user
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.utils import extract_user
 
 from .help import *
 

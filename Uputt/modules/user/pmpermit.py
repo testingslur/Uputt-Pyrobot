@@ -13,11 +13,11 @@ from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
 
 from config import CMD_HANDLER
-from Uputt import TEMP_SETTINGS
-from Uputt.helpers.adminHelpers import DEVS
-from Uputt.helpers.basic import edit_or_reply
-from Uputt.helpers.SQL.globals import addgvar, gvarstatus
-from Uputt.helpers.tools import get_arg
+from PunyaAlby import TEMP_SETTINGS
+from PunyaAlby.helpers.adminHelpers import DEVS
+from PunyaAlby.helpers.basic import edit_or_reply
+from PunyaAlby.helpers.SQL.globals import addgvar, gvarstatus
+from PunyaAlby.helpers.tools import get_arg
 
 from .help import *
 
@@ -40,8 +40,8 @@ DEF_UNAPPROVED_MSG = (
 )
 async def incomingpm(client: Client, message: Message):
     try:
-        from Uputt.helpers.SQL.globals import gvarstatus
-        from Uputt.helpers.SQL.pm_permit_sql import is_approved
+        from PunyaAlby.helpers.SQL.globals import gvarstatus
+        from PunyaAlby.helpers.SQL.pm_permit_sql import is_approved
     except BaseException:
         pass
 
@@ -97,7 +97,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from Uputt.helpers.SQL.pm_permit_sql import approve, is_approved
+        from PunyaAlby.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -144,7 +144,7 @@ async def auto_accept(client, message):
 )
 async def approvepm(client: Client, message: Message):
     try:
-        from Uputt.helpers.SQL.pm_permit_sql import approve
+        from PunyaAlby.helpers.SQL.pm_permit_sql import approve
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
@@ -183,7 +183,7 @@ async def approvepm(client: Client, message: Message):
 )
 async def disapprovepm(client: Client, message: Message):
     try:
-        from Uputt.helpers.SQL.pm_permit_sql import dissprove
+        from PunyaAlby.helpers.SQL.pm_permit_sql import dissprove
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
@@ -221,7 +221,7 @@ async def setpm_limit(client: Client, cust_msg: Message):
             f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
         )
     try:
-        from Uputt.helpers.SQL.globals import addgvar
+        from PunyaAlby.helpers.SQL.globals import addgvar
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
@@ -235,11 +235,11 @@ async def setpm_limit(client: Client, cust_msg: Message):
     )
     if not input_str:
         return await cust_msg.edit("**Harap masukan angka untuk PM_LIMIT.**")
-    Uputt = await cust_msg.edit("`Processing...`")
+    PunyaAlby = await cust_msg.edit("`Processing...`")
     if input_str and not input_str.isnumeric():
-        return await Uputt.edit("**Harap masukan angka untuk PM_LIMIT.**")
+        return await PunyaAlby.edit("**Harap masukan angka untuk PM_LIMIT.**")
     addgvar("PM_LIMIT", input_str)
-    await Uputt.edit(f"**Set PM limit to** `{input_str}`")
+    await PunyaAlby.edit(f"**Set PM limit to** `{input_str}`")
 
 
 @Client.on_message(filters.command(["pmpermit", "pmguard"], cmd) & filters.me)
@@ -274,20 +274,20 @@ async def stpmpt(client: Client, cust_msg: Message):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Uputt = await cust_msg.edit("`Processing...`")
+    PunyaAlby = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     message = cust_msg.reply_to_message
     if custom_message is not None:
         sql.delgvar("unapproved_msg")
     if not message:
-        return await Uputt.edit("**Mohon Reply Ke Pesan**")
+        return await PunyaAlby.edit("**Mohon Reply Ke Pesan**")
     msg = message.text
     sql.addgvar("unapproved_msg", msg)
-    await Uputt.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
+    await PunyaAlby.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
 
 
 @Client.on_message(filters.command("getpmpermit", cmd) & filters.me)
@@ -297,16 +297,16 @@ async def gtpmprmt(client: Client, cust_msg: Message):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Uputt = await cust_msg.edit("`Processing...`")
+    PunyaAlby = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     if custom_message is not None:
-        await Uputt.edit("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
+        await PunyaAlby.edit("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
     else:
-        await Uputt.edit(
+        await PunyaAlby.edit(
             "**Anda Belum Menyetel Pesan Costum PMPERMIT,**\n"
             f"**Masih Menggunakan Pesan PM Default:**\n\n{DEF_UNAPPROVED_MSG}"
         )
@@ -319,18 +319,18 @@ async def gtpmprmt(client: Client, cust_msg: Message):
             f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
         )
     try:
-        import Uputt.helpers.SQL.globals as sql
+        import PunyaAlby.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Uputt = await cust_msg.edit("`Processing...`")
+    PunyaAlby = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
 
     if custom_message is None:
-        await Uputt.edit("**Pesan PMPERMIT Anda Sudah Default**")
+        await PunyaAlby.edit("**Pesan PMPERMIT Anda Sudah Default**")
     else:
         sql.delgvar("unapproved_msg")
-        await Uputt.edit("**Berhasil Mengubah Pesan Custom PMPERMIT menjadi Default**")
+        await PunyaAlby.edit("**Berhasil Mengubah Pesan Custom PMPERMIT menjadi Default**")
 
 
 add_command_help(
