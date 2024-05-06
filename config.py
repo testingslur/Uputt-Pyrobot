@@ -10,7 +10,7 @@
 import os
 from distutils.util import strtobool
 from os import getenv
-from Uputt.helpers.cmd import cmd
+from PunyaAlby.helpers.cmd import cmd
 
 from dotenv import load_dotenv
 
@@ -18,10 +18,10 @@ load_dotenv("config.env")
 
 
 ALIVE_EMOJI = getenv("ALIVE_EMOJI", "🥵")
-ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph/file/3b4f8e18de24d10e5cce0.jpg")
+ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph//file/5779af04a54f14357f5b4.jpg")
 ALIVE_TEKS_CUSTOM = getenv("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
-API_HASH = getenv("API_HASH", "34efb38c74d5e6b25d1bb6234396a8af")
-API_ID = getenv("API_ID", "23129036")
+API_HASH = getenv("API_HASH", "c04de463efc28c261c90d8a03695f5b0")
+API_ID = getenv("API_ID", "27792118")
 BLACKLIST_CHAT = getenv("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001608701614, -1001675459127, -1001473548283, -1001608701614, -1001854052937]
@@ -31,9 +31,9 @@ BOT_VER = "1.1.5@main"
 BRANCH = getenv("BRANCH", "main") #don't change
 CMD_HNDLR = cmd
 OWNER_ID = getenv("OWNER_ID", "")
-BOT_TOKEN = getenv("BOT_TOKEN", "none")
+BOT_TOKEN = getenv("BOT_TOKEN", "6741975150:AAFXXCy41XYRqcajdOHS0gRd2VLHy88Zd6A")
 OPENAI_API_KEY = getenv("OPENAI_API_KEY", "")
-CHANNEL = getenv("CHANNEL", "kontenMT")
+CHANNEL = getenv("CHANNEL", "ruangprojects")
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv("GIT_TOKEN", "")
