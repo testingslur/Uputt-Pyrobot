@@ -7,10 +7,10 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from Uputt import CMD_HELP, app
-from Uputt.helpers.data import Data
-from Uputt.helpers.inline import cb_wrapper, paginate_help
-from Uputt import ids as users
+from PunyaAlby import CMD_HELP, app
+from PunyaAlby.helpers.data import Data
+from PunyaAlby.helpers.inline import cb_wrapper, paginate_help
+from PunyaAlby import ids as users
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):

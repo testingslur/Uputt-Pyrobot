@@ -9,7 +9,7 @@
 # kopas repo dan hapus credit, ga akan jadikan lu seorang developer
 # ©2023 Geez | Ram Team
 import random
-from Uputt import app
+from PunyaAlby import app
 from pyrogram import filters
 from pyrogram.types import (
     InlineKeyboardButton,
@@ -24,14 +24,14 @@ def pmowner(client, callback_query):
     client.send_message(user_id, message)
     client.answer_callback_query(callback_query.id, text="Message sent")
 
-logouputt = [
+logoalby = [
     "https://graph.org/file/f832baf4ee57272d4dd3f.jpg",
     "https://telegra.ph//file/a96bdaccd5beb26d4cd51.jpg",
     "https://telegra.ph//file/5779af04a54f14357f5b4.jpg",
     "https://telegra.ph//file/4f61d3c4e77e998f3e6d6.jpg"
 ]
 
-alive_logo = random.choice(logouputt)
+alive_logo = random.choice(logoalby)
 
 @app.on_message(filters.command("start") & filters.private)
 async def start(app, message):
@@ -40,7 +40,7 @@ async def start(app, message):
     caption = "Hi, Saya Asisstant ALBY-Pyrobot\nTidak Ada Yang Special Kecuali Manisnya kamu."
     reply_markup = InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("Support", url="https://t.me/ruangdiskusikami"),
+            InlineKeyboardButton("Support", url="https://t.me/MT_Force"),
             InlineKeyboardButton("Channel", url="https://t.me/kontenMT"),
         ],
     ])

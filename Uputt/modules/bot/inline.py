@@ -21,10 +21,10 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from Uputt.helpers.data import Data
-from Uputt.helpers.inline import inline_wrapper, paginate_help
+from PunyaAlby.helpers.data import Data
+from PunyaAlby.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
-from Uputt import CMD_HELP, StartTime, app
+from PunyaAlby import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
 
